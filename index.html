@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayush Vyas | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #1e1e1e;
+      color: #eaeaea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #2e2e2e;
+      color: #eaeaea;
+      padding: 20px 40px;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2em;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-right: auto;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #eaeaea;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #b397ff;
+    }
+
+    main {
+      padding: 40px;
+      width: 80%;
+      max-width: 1000px;
+      background-color: #292929;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      margin-top: 80px;
+    }
+
+    section {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2.5em;
+      color: #bcaeff;
+      margin-bottom: 20px;
+    }
+
+    .typing {
+      font-size: 1.1em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #bcaeff;
+      animation: typing 8s steps(80, end), blink 0.75s step-end infinite;
+      width: 0;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #bcaeff; }
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #8a79c9;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .resume-btn:hover {
+      background-color: #6b5bb5;
+    }
+
+    .project, .certificate, .hobby {
+      background-color: #353535;
+      border-left: 5px solid #8a79c9;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+    }
+
+    .project a, .certificate a, .hobby a {
+      color: #bcaeff;
+      text-decoration: underline;
+    }
+
+    .skills-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      list-style: none;
+      font-weight: bold;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .skills-list li {
+      background-color: #3f3f3f;
+      padding: 10px 15px;
+      border-radius: 6px;
+      color: #eaeaea;
+    }
+
+    .hobbies-list, .certificates-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      list-style: none;
+      justify-content: center;
+    }
+
+    .hobbies-list li, .certificates-list li {
+      background-color: #444;
+      padding: 10px 15px;
+      border-radius: 6px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #555;
+      border-radius: 6px;
+      font-size: 1em;
+      background-color: #2b2b2b;
+      color: #eaeaea;
+    }
+
+    button[type="submit"] {
+      background-color: #8a79c9;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #6b5bb5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #2e2e2e;
+      font-size: 0.9em;
+      color: #aaa;
+      width: 100%;
+    }
+
+    .scrollable-container {
+      max-height: 200px;
+      overflow-y: scroll;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .scrollable-container:hover {
+      border-color: #8a79c9;
+      background-color: #2a2a2a;
+    }
+
+    .full-screen-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ayush Vyas</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p class="typing">Hi there! I’m Ayush Vyas, a passionate web developer and technology enthusiast...</p>
+      <a href="resume.pdf" download class="resume-btn">📄 Download Resume</a>
+    </section>
+
+    <section id="projects">
+      <h2>Real-Time Projects</h2>
+      <div class="project">
+        <h3>Dairy Delights</h3>
+        <p>An e-commerce website for dairy products with cart, authentication, and admin panel.</p>
+        <ul class="skills-list">
+          <li>PHP</li>
+          <li>MySQL</li>
+          <li>JavaScript</li>
+          <li>CSS</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3>Spend-O-Matic</h3>
+        <p>A fun game where users try to spend a fictional ₹1 Quintillion on real-world products. Built with PHP, MySQL, and JavaScript. Includes user levels, missions, and confetti effects.</p>
+        <ul class="skills-list">
+          <li>PHP</li>
+          <li>React</li>
+          <li>MySQL</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3>Electronics Junction</h3>
+        <p>An e-commerce website for electronics products with cart, login, register, mail and admin panel</p>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>PHP</li>
+          <li>Node.js</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>PHP</li>
+        <li>React</li>
+        <li>MySQL</li>
+      </ul>
+    </section>
+
+    <section id="certificates">
+      <h2>Certificates</h2>
+      <div class="certificate">
+        <h3>Python Certification</h3>
+        <p>Covered Python. Built responsive and interactive websites.</p>
+      </div>
+      <div class="certificate">
+        <h3>AI Certification</h3>
+        <p>Specialized in building modern AI using AI languages and tools.</p>
+      </div>
+      <div class="certificate">
+        <h3>Meta Certification</h3>
+        <p>Learned about Meta and modern coding languages.</p>
+      </div>
+      <div class="certificate">
+        <h3>LinkedIn Learning</h3>
+        <p>Career Essentials in Sustainable Tech by Microsoft and LinkedIn Career Essentials in Sustainable Tech by Microsoft and LinkedIn.</p><br>
+        <h3>Top Skills Covered</h3>
+        <p>Sustainable Business Strategies</p>
+        <p>Digital Sustainability</p>
+        <p>Green Jobs</p>
+      </div>
+      <div class="certificate">
+        <h3>LinkedIn Learning</h3>
+        <p>Build Your Generative AI Productivity Skills with Microsoft and LinkedIn</p><br>
+        <h3>Top Skills Covered</h3>
+        <p>Artificial Intelligence for Business</p>
+        <p>Artificial Intelligence for Design</p>
+        <p> Generative AI</p>
+      </div>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <ul class="hobbies-list">
+        <li>Coding</li>
+        <li>Writing</li>
+        <li>Travelling</li>
+        <li>Music</li>
+        <li>Gaming</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="full-screen-contact">
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ayush Vyas. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(sec => {
+      observer.observe(sec);
+    });
+  </script>
+</body>
+</html>
